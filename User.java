@@ -50,7 +50,7 @@ public class User {
      * If this user follows the given name, returns true; otherwise returns false.
      */
     public boolean follows(String name) {
-        for (int i = 0; i < this.follows.length; i++) {
+        for (int i = 0; i < this.fCount; i++) {
             if (this.follows[i].equals(name.substring(0, 1).toUpperCase() + name.substring(1))) {
                 return true;
             }
@@ -87,7 +87,7 @@ public class User {
      * If the name is not in the list, does nothing and returns false.
      */
     public boolean removeFollowee(String name) {
-        for (int i = 0; i < this.follows.length; i++) {
+        for (int i = 0; i < fCount; i++) {
             if (this.follows[i].equals(name)) {
                 for (int j = i + 1; j < this.follows.length; j++) {
                     this.follows[i] = this.follows[j];
@@ -105,7 +105,7 @@ public class User {
      */
     public int countMutual(User other) {
         int counter = 0;
-        for (int i = 0; i < other.follows.length; i++) {
+        for (int i = 0; i < other.fCount; i++) {
             if (this.follows(other.follows[i])) {
                 counter++;
             }
