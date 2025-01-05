@@ -118,8 +118,16 @@ public class Network {
      * the users in this network. Note: A name can appear 0 or 1 times in each list.
      */
     private int followeeCount(String name) {
-        //// Replace the following statement with your code
-        return 0;
+        int counter = 0;
+        for (int i = 0; i < this.users.length; i++) {
+            User currentUser = this.users[i];
+            for (int j = 0; j < currentUser.getfCount(); j++) {
+                if (currentUser.getfFollows()[j].equals(name)) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
     }
 
     // Returns a textual description of all the users in this network, and who they
@@ -129,7 +137,12 @@ public class Network {
         for (int i = 0; i < this.users.length; i++) {
             User currentUser = this.users[i];
             String userString = currentUser.getName();
+            String[] follows = currentUser.getfFollows();
+            for (int j = 0; j < follows.length; j++) {
+                userString += follows[j];
+            }
+            string += userString;
         }
-        return null;
+        return string;
     }
 }
