@@ -38,7 +38,7 @@ public class Network {
      */
     public User getUser(String name) {
         for (int i = 0; i < this.userCount; i++) {
-            if (this.users[i].getName().toLowerCase() == name.toLowerCase()) {
+            if (this.users[i].getName().toLowerCase().equals(name.toLowerCase())) {
                 return this.users[i];
             }
         }
@@ -116,7 +116,7 @@ public class Network {
         }
         User popularUser = this.users[0];
         for (int i = 1; i < this.userCount; i++) {
-            if (followeeCount(this.users[i].getName()) > followeeCount(popularUser.getName())) {
+            if (followeeCount(this.users[i].getName()) >= followeeCount(popularUser.getName())) {
                 popularUser = this.users[i];
             }
         }
@@ -132,8 +132,9 @@ public class Network {
         int counter = 0;
         for (int i = 0; i < this.userCount; i++) {
             User currentUser = this.users[i];
+            String[] userFollows = currentUser.getfFollows();
             for (int j = 0; j < currentUser.getfCount(); j++) {
-                if (currentUser.getfFollows()[j].equals(name)) {
+                if (userFollows[j].equals(name)) {
                     counter++;
                 }
             }
