@@ -51,7 +51,7 @@ public class User {
      */
     public boolean follows(String name) {
         for (int i = 0; i < this.follows.length; i++) {
-            if (this.follows[i].equals(name)) {
+            if (this.follows[i].equals(name.substring(0, 1).toUpperCase() + name.substring(1))) {
                 return true;
             }
         }
