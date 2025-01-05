@@ -116,7 +116,7 @@ public class Network {
         }
         User popularUser = this.users[0];
         for (int i = 1; i < this.userCount; i++) {
-            if (followeeCount(this.users[i].getName()) >= followeeCount(popularUser.getName())) {
+            if (followeeCount(this.users[i].getName()) > followeeCount(popularUser.getName())) {
                 popularUser = this.users[i];
             }
         }
