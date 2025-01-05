@@ -155,6 +155,6 @@ public class Network {
             }
             string += userString;
         }
-        return string + " ";
+        return string;
     }
 }
