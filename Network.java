@@ -39,7 +39,7 @@ public class Network {
     public User getUser(String name) {
         for (int i = 0; i < this.userCount; i++) {
             if (this.users[i].getName() == name.substring(0, 1).toUpperCase() + name.substring(1)) {
-                return users[i];
+                return this.users[i];
             }
         }
         return null;
@@ -70,7 +70,7 @@ public class Network {
      * or if the "follows" addition failed for some reason, returns false.
      */
     public boolean addFollowee(String name1, String name2) {
-        if (name1 == name2) {
+        if (name1.equals(name2)) {
             return false;
         }
         User mainUser = getUser(name1);
@@ -149,7 +149,7 @@ public class Network {
             User currentUser = this.users[i];
             String userString = currentUser.getName();
             String[] follows = currentUser.getfFollows();
-            for (int j = 0; j < follows.length; j++) {
+            for (int j = 0; j < currentUser.getfCount(); j++) {
                 userString += follows[j];
             }
             string += userString;
