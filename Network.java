@@ -108,8 +108,13 @@ public class Network {
      * The user who appears the most in the follow lists of all the users.
      */
     public String mostPopularUser() {
-        //// Replace the following statement with your code
-        return null;
+        User popularUser = this.users[0];
+        for (int i = 1; i < this.users.length; i++) {
+            if (followeeCount(this.users[i].getName()) > followeeCount(popularUser.getName())) {
+                popularUser = this.users[i];
+            }
+        }
+        return popularUser.getName();
     }
 
     /**
