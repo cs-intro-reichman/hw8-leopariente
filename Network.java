@@ -37,7 +37,7 @@ public class Network {
      * Notice that the method receives a String, and returns a User object.
      */
     public User getUser(String name) {
-        for (int i = 0; i < this.users.length; i++) {
+        for (int i = 0; i < this.userCount; i++) {
             if (this.users[i].getName() == name) {
                 return users[i];
             }
@@ -93,7 +93,7 @@ public class Network {
         if (recommendedUser.getName() == name) {
             recommendedUser = this.users[1];
         }
-        for (int i = 0; i < this.users.length; i++) {
+        for (int i = 0; i < this.userCount; i++) {
             if (this.users[i].getName() != name) {
                 if (this.users[i].countMutual(user) > recommendedUser.countMutual(user)) {
                     recommendedUser = this.users[i];
@@ -109,7 +109,7 @@ public class Network {
      */
     public String mostPopularUser() {
         User popularUser = this.users[0];
-        for (int i = 1; i < this.users.length; i++) {
+        for (int i = 1; i < this.userCount; i++) {
             if (followeeCount(this.users[i].getName()) > followeeCount(popularUser.getName())) {
                 popularUser = this.users[i];
             }
@@ -124,7 +124,7 @@ public class Network {
      */
     private int followeeCount(String name) {
         int counter = 0;
-        for (int i = 0; i < this.users.length; i++) {
+        for (int i = 0; i < this.userCount; i++) {
             User currentUser = this.users[i];
             for (int j = 0; j < currentUser.getfCount(); j++) {
                 if (currentUser.getfFollows()[j].equals(name)) {
@@ -139,7 +139,7 @@ public class Network {
     // follow.
     public String toString() {
         String string = "";
-        for (int i = 0; i < this.users.length; i++) {
+        for (int i = 0; i < this.userCount; i++) {
             User currentUser = this.users[i];
             String userString = currentUser.getName();
             String[] follows = currentUser.getfFollows();
