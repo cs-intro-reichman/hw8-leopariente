@@ -70,6 +70,9 @@ public class Network {
      * or if the "follows" addition failed for some reason, returns false.
      */
     public boolean addFollowee(String name1, String name2) {
+        if (name1 == name2) {
+            return false;
+        }
         User mainUser = getUser(name1);
         User secondUser = getUser(name2);
         if (mainUser == null || secondUser == null) {
