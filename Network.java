@@ -151,7 +151,7 @@ public class Network {
             String userString = "\n" + currentUser.getName() + " -> ";
             String[] follows = currentUser.getfFollows();
             for (int j = 0; j < currentUser.getfCount(); j++) {
-                userString += follows[j];
+                userString += follows[j] + " ";
             }
             string += userString;
         }
